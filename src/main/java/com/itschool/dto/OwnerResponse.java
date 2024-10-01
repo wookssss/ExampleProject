@@ -5,18 +5,16 @@ import lombok.Getter;
 
 @Getter
 public class OwnerResponse {
-    private Long key;
-    private final String id;
-    private final String password;
+    private Long id;
+    private final String username;
     private final String buisnessNumber;
     private final String storeName;
     private final String ownerName;
     private final String callNumber;
 
     public OwnerResponse(Owner owner) {
-        this.key = owner.getKey();
         this.id = owner.getId();
-        this.password = owner.getPassword();
+        this.username = owner.getUsername();
         this.buisnessNumber = owner.getBuisnessNumber();
         this.storeName = owner.getStoreName();
         this.ownerName = owner.getOwnerName();

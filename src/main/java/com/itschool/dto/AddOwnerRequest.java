@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Getter
 public class AddOwnerRequest {
-    private String id;
+    private String username;
     private String password;
     private String buisnessNumber;
     private String storeName;
@@ -18,7 +18,7 @@ public class AddOwnerRequest {
 
     public Owner toEntity(){
         return Owner.builder()
-                .id(id)
+                .username(username)
                 .password(password)
                 .buisnessNumber(buisnessNumber)
                 .storeName(storeName)

@@ -13,11 +13,11 @@ import lombok.NoArgsConstructor;
 public class Owner {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="ownerKey", updatable = false)
-    private Long key;
+    @Column(updatable = false)
+    private Long id;
 
-    @Column(name = "id",nullable = false,unique = true)
-    private String id;
+    @Column(nullable = false,unique = true)
+    private String username;
 
     @Column(nullable = false)
     private String password;
@@ -35,9 +35,9 @@ public class Owner {
     private String callNumber;
 
     @Builder
-    public Owner(String id, String password, String buisnessNumber,
+    public Owner(String username, String password, String buisnessNumber,
                  String storeName, String ownerName, String callNumber) {
-        this.id = id;
+        this.username = username;
         this.password = password;
         this.buisnessNumber = buisnessNumber;
         this.storeName = storeName;

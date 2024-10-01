@@ -3,9 +3,9 @@ package com.itschool.controller;
 import com.itschool.domain.Owner;
 import com.itschool.dto.AddOwnerRequest;
 import com.itschool.dto.OwnerResponse;
+import com.itschool.dto.UpdateOwnerRequest;
 import com.itschool.service.OwnerService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -48,5 +48,11 @@ public class OwnerApiController {
         ownerService.deleteOwner(key);
 
         return ResponseEntity.ok().build();
+    }
+    @PutMapping("{key}")
+    public ResponseEntity<Owner>
+    update(@PathVariable Long key, @RequestBody UpdateOwnerRequest request){
+        Owner savedOwner = ownerService.update(key, request);
+        return ResponseEntity.ok().body(savedOwner);
     }
 }
